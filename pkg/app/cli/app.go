@@ -11,10 +11,6 @@ import (
 	"github.com/spf13/cobra"
 )
 
-func init() {
-	sqlite.InitPool()
-}
-
 var rootCmd = &cobra.Command{
 	Use:   "togo",
 	Short: "togo is a simple and easy to use task cli manager",
@@ -34,6 +30,10 @@ var rootCmd = &cobra.Command{
 			fmt.Printf("Name: %s\nDescription: %s\n", task.Name, task.Description)
 		}
 	},
+}
+
+func init() {
+	sqlite.InitPool()
 }
 
 func Execute() {
